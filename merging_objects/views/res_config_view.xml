@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- object merger settings form view -->
+        <record id="view_merging_objects_settings" model="ir.ui.view">
+            <field name="name">Object merger settings</field>
+            <field name="model">object.merger.settings</field>
+            <field name="arch" type="xml">
+                <form string="Object Merger Settings" version="10.0">
+                    <header>
+                        <button string="Apply" type="object" name="install" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Merging Objects Configuration"/>
+                    <group name="object_merge_config">
+                        <div name="object_merger">
+                       		<group colspan="8">
+	  							<field name="models_ids" colspan="4" nolabel="1"/>
+							</group>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_merging_objects_settings" model="ir.actions.act_window">
+            <field name="name">Configure Objects Merger</field>
+            <field name="res_model">object.merger.settings</field>
+            <field name="view_id" ref="view_merging_objects_settings"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_object_merger_settings" name="Merging Objects" parent="base.next_id_9"
+            sequence="35" action="action_merging_objects_settings"/>
+    </data>
+</openerp>
